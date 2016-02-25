@@ -82,7 +82,7 @@ public:
 	static FKinectPluginCore* const GetInstance();
 	/* End Singleton Interface*/
 
-	FFLKinect_Body const& GetBody(uint8 number);
+	FFLKinect_Body const* GetBody(uint8 number);
 
 	bool			TrackFlags[BODY_COUNT];
 	

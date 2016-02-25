@@ -2,8 +2,8 @@
 	"FileVersion" : 3,
 	
 	"FriendlyName" : "FakeLove Kinect Plugin",
-	"Version" : 2,
-	"VersionName" : "0.2",
+	"Version" : 3,
+	"VersionName" : "0.2.1",
 	"CreatedBy" : "Fake Love",
 	"CreatedByURL" : "http://fakelove.tv",
 	"EngineVersion" : "4.9.0",

@@ -27,4 +27,13 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Kinect")
 		static bool IsKinectBodyTracked(uint8 number);
 
+	UFUNCTION(BlueprintCallable, Category = "Kinect|Debug")
+		static bool GetFirstActiveKinectBody(FFLKinect_Body& out);
+
+	UFUNCTION(BlueprintCallable, Category = "Kinect|Debug")
+		static void GetAllPositions(uint8 num, TArray<FVector>& out);
+
+	UFUNCTION(BlueprintCallable, Category = "Kinect|Debug")
+		static void DrawBody(const AActor* worldActor, UPARAM(ref) FFLKinect_Body& body, FTransform transform, float PointSize, float LineLength);
+
 };

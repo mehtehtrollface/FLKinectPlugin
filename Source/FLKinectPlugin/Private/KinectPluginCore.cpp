@@ -244,10 +244,10 @@ FKinectPluginCore* const FKinectPluginCore::GetInstance()
 		}
 	}
 
-	FFLKinect_Body const& FKinectPluginCore::GetBody(uint8 number)
+	FFLKinect_Body const* FKinectPluginCore::GetBody(uint8 number)
 	{
 		//definitely throws if something is wrong.
-		return bodies[number];
+		return &bodies[number];
 	}
 
 

@@ -36,7 +36,8 @@ public:
 	}
 };
 
-// This really belongs in a util library
+// Windows stub for releasing a pointer
+
 template <class T> void SafeRelease(T **ppT)
 {
 	if (*ppT)

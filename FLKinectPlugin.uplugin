@@ -2,13 +2,13 @@
 	"FileVersion" : 3,
 	
 	"FriendlyName" : "FakeLove Kinect Plugin",
-	"Version" : 1,
-	"VersionName" : "0.0.1",
+	"Version" : 2,
+	"VersionName" : "0.2",
 	"CreatedBy" : "Fake Love",
 	"CreatedByURL" : "http://fakelove.tv",
-	"EngineVersion" : "4.8.0",
-	"Description" : "Kinect Integration",
-	"Category" : "Examples",
+	"EngineVersion" : "4.9.0",
+	"Description" : "Kinect Integration for Unreal Engine",
+	"Category" : "Input",
 	"EnabledByDefault" : true,
 	
 	"Modules" :

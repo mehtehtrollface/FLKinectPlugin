@@ -1,4 +1,5 @@
 #include "FLKinectPluginPrivatePCH.h"
+#include "KinectPluginCore.h"
 
 FVector UKinectPluginFunctionLibrary::GetJointPosition(FFLKinect_Body const& body, EFLKinect_JointType type)
 {

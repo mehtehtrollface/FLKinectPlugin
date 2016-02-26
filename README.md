@@ -16,6 +16,10 @@ Kinect 2 allows up to 6 bodies tracked, you can see which ones are tracked throu
 
 ## Changelog
 
+**0.2.3**
+
+Moves Kinect Types to a public path.
+
 **0.2.2**
 
 Fixes issue with how orientations are drawn.

@@ -36,7 +36,8 @@ namespace UnrealBuildTool.Rules
 
 			PrivateIncludePaths.AddRange(
 				new string[] {
-					"Developer/FLKinectPlugin/Private",
+					"FLKinectPlugin/Private",
+                    "FLKinectPlugin/Classes",
                     ThirdPartyKinectIncludePath
 					// ... add other private include paths required here ...
 				}

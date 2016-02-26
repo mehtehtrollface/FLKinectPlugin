@@ -58,11 +58,25 @@ void UKinectPluginFunctionLibrary::DrawBody(const AActor* worldActor, FFLKinect_
 {
 	for (int32 i = 0; i < body.nJoints; ++i)
 	{
+		auto PointColor = FColor::Red;
+		if (	(i == static_cast<uint8>(EFLKinect_JointType::HandRight)&& body.HandRightState == EFLKinect_HandState::Closed)
+			||	(i == static_cast<uint8>(EFLKinect_JointType::HandLeft)	&& body.HandLeftState == EFLKinect_HandState::Closed))
+		{
+			PointColor = FColor::Blue;
+		}
+
 		auto position = transform.TransformFVector4(body.positions[i]);
 		auto forward = body.orientations[i].RotateVector(FVector::ForwardVector * LineLength);
+		
 		//TODO (OS): Check the math here
 		auto endEffectorPosition = position + transform.TransformFVector4(forward);
-		DrawDebugPoint(worldActor->GetWorld(), position, PointSize, FColor::Red, false, 0.03);
-		DrawDebugLine(worldActor->GetWorld(), position, endEffectorPosition, FColor::Green, false, 0.03, 0, PointSize * 0.3);
+		DrawDebugPoint(worldActor->GetWorld(), position, PointSize, PointColor, false, 0.03, 0);
+		
+		float const epsilon = 0.001;
+		if (LineLength > epsilon) 
+		{
+			DrawDebugLine(worldActor->GetWorld(), position, endEffectorPosition, FColor::Green, false, 0.03, 0, PointSize * 0.05);
+		}
+		
 	}
 }

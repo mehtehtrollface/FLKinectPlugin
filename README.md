@@ -1,6 +1,6 @@
-# FLKinectPlugin - Kinect Integration Plugin for Unreal Engine 4.9
+# FLKinectPlugin - Kinect Integration Plugin for Unreal Engine
 
-This plugin exposes all tracked bodies to Unreal Engine 4.9.
+This plugin exposes all tracked bodies to Unreal Engine.
 
 ## Usage
 

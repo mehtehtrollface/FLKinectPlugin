@@ -6,7 +6,6 @@
 	"VersionName" : "0.2.3",
 	"CreatedBy" : "Fake Love",
 	"CreatedByURL" : "http://fakelove.tv",
-	"EngineVersion" : "4.9.0",
 	"Description" : "Kinect Integration for Unreal Engine",
 	"Category" : "Input",
 	"EnabledByDefault" : true,

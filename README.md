@@ -14,10 +14,6 @@ Kinect 2 allows up to 6 bodies tracked, you can see which ones are tracked throu
 
 ![Get First Body](Resources/Readme/Switch.PNG)
 
-## Edited by mehtehtrollface
-
-Edited by mehtehtrollface to support later UE4 versions, tested for UE 4.26. Joint locations by default have their X inverted and added a Get Joint Transform node.
-
 ## Changelog
 
 **0.2.3**

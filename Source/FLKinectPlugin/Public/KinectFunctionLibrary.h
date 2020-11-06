@@ -67,7 +67,10 @@ class FLKINECTPLUGIN_API UKinectPluginFunctionLibrary : public UBlueprintFunctio
 public:
 
 	UFUNCTION(BlueprintPure, Category = "Kinect")
-		static FVector GetJointPosition(UPARAM(ref) FFLKinect_Body const& body, EFLKinect_JointType type);
+		static FVector GetJointPosition(UPARAM(ref) FFLKinect_Body const& body, EFLKinect_JointType type, bool bFacingAway);
+
+	UFUNCTION(BlueprintPure, Category = "Kinect")
+		static FTransform GetJointTransform(UPARAM(ref) FFLKinect_Body const& body, EFLKinect_JointType type, bool bFacingAway);
 
 	UFUNCTION(BlueprintPure, Category = "Kinect")
 		static FRotator GetJointOrientation(UPARAM(ref) FFLKinect_Body const& body, EFLKinect_JointType type);

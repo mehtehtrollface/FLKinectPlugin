@@ -1,9 +1,25 @@
-#include "FLKinectPluginPrivatePCH.h"
+#include "KinectFunctionLibrary.h"
 #include "KinectPluginCore.h"
+#include "FLKinectPluginPrivatePCH.h"
 
-FVector UKinectPluginFunctionLibrary::GetJointPosition(FFLKinect_Body const& body, EFLKinect_JointType type)
+
+FVector UKinectPluginFunctionLibrary::GetJointPosition(FFLKinect_Body const& body, EFLKinect_JointType type, bool bFacingAway)
 {
-	return body.positions[static_cast<uint8>(type)];
+	FVector position = body.positions[static_cast<uint8>(type)];
+	if (!bFacingAway) {
+		position = FVector(position.X * -1, position.Y, position.Z);
+	}
+	return position;
+}
+
+FTransform UKinectPluginFunctionLibrary::GetJointTransform(FFLKinect_Body const& body, EFLKinect_JointType type, bool bFacingAway)
+{
+	FVector position = body.positions[static_cast<uint8>(type)];
+	FRotator rotation = body.orientations[static_cast<uint8>(type)];
+	if (!bFacingAway) {
+		position = FVector(position.X * -1, position.Y, position.Z);
+	}
+	return FTransform(rotation, position, FVector(1, 1, 1));
 }
 
 FRotator UKinectPluginFunctionLibrary::GetJointOrientation(FFLKinect_Body const& body, EFLKinect_JointType type)
@@ -71,13 +87,15 @@ void UKinectPluginFunctionLibrary::DrawBody(const AActor* worldActor, FFLKinect_
 		
 		//TODO (OS): Check the math here
 		auto endEffectorPosition = position + transform.TransformFVector4(forward);
-		DrawDebugPoint(worldActor->GetWorld(), position, PointSize, PointColor, false, 0.03, 0);
-		
-		float const epsilon = 0.001;
-		if (LineLength > epsilon) 
-		{
-			DrawDebugLine(worldActor->GetWorld(), position, endEffectorPosition, FColor::Green, false, 0.03, 0, PointSize * 0.05);
+		if (worldActor) {
+			DrawDebugPoint(worldActor->GetWorld(), position, PointSize, PointColor, false, 0.03, 0);
+
+			float const epsilon = 0.001;
+			if (LineLength > epsilon)
+			{
+				DrawDebugLine(worldActor->GetWorld(), position, endEffectorPosition, FColor::Green, false, 0.03, 0, PointSize * 0.05);
+			}
 		}
-		
+
 	}
 }
